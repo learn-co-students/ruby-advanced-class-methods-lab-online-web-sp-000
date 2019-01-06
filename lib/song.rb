@@ -53,4 +53,8 @@ class Song
     song.save
     song
   end
+  
+  def destroy_all
+    self.all.clear
+  end
 end
