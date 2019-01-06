@@ -12,8 +12,7 @@ class Song
   
   def self.create
     song = self.new
-    self.all << song
-    song
+    song.save
   end
   
   def self.new_by_name(name)
@@ -46,5 +45,10 @@ class Song
     song = self.new_by_name name
     song.artist_name = artist
     song
+  end
+  
+  def self.create_from_filename(filename)
+    song = self.new_from_filename filename
+    song.save
   end
 end
