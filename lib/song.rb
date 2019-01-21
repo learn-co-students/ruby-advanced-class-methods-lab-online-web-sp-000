@@ -10,4 +10,55 @@ class Song
     self.class.all << self
   end
 
+  def self.create
+    new_song = self.new
+    self.all << new_song
+    new_song
+  end
+
+  def self.new_by_name(name)
+    song = self.new
+    song.name = name
+    song
+  end
+
+  def self.create_by_name(name)
+    song = self.new
+    song.name = name
+    self.all << song
+    song
+  end
+
+  def self.find_by_name(name)
+    self.all.find {|song| song.name == name}
+    #result = nil
+    #self.all.each do |song|
+      #if song.name == name
+        #result = song
+      #end
+    #end
+    #result
+  #end
+  end
+
+  def self.find_or_create_by_name(name)
+    song = nil
+    if find_by_name == name
+      song = find_by_name
+    else
+      song = create_by_name
+    end
+    song
+  end
 end
+
+result = nil
+self.all.each do |song|
+  if song.name == name
+    result = song
+  else
+    result = self.new
+    result.name = name
+  end
+end
+result
