@@ -14,7 +14,7 @@ class Song
 
   def self.create
     song = self.new
-    self.all << song
+    song.save
     song
   end
 
@@ -25,9 +25,8 @@ class Song
   end
 
   def self.create_by_name(string)
-    song = self.new
+    song = self.create
     song.name = string
-    self.all << song
     song
   end
 
@@ -49,18 +48,23 @@ class Song
 
   def self.new_from_filename(file)
     file_array = file.split(" - ")
+    artist = file_array[0]
     song = file_array[1].chomp(".mp3")
+    
     new_song = self.create_by_name(song)
-    new_song.artist_name = file_array[0]
+    new_song.artist_name = artist
     new_song
   end
 
   def self.create_from_filename(file)
     file_array = file.split(" - ")
+    artist = file_array[0]
     song = file_array[1].chomp(".mp3")
+
     new_song = self.create_by_name(song)
-    new_song.artist_name = file_array[0]
-    self.all << new_song
+    new_song.artist_name = artist
+    new_song.save
+    new_song
   end
 
   def self.destroy_all
