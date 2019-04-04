@@ -41,13 +41,20 @@ class Song
     @@all
   end
 
-  def self.new_from_filename(mp3)
-    
+  def self.new_from_filename(song, artist_name)
+    song = song.new 
+    artist_name = artist_name.new 
+    song.name = "Blank Space"
+    @artist_name = artist_name
   end  
   
-  def self.create_from_filename(filename)
-    file = filename.split("-.mp3")
-  end 
+  def self.create_from_filename(song, artist_name)
+   if filename.include?(".mp3")
+    file = filename.split(".mp3")
+   else 
+     filename
+   end 
+  end  
 
   def save
     self.class.all << self
