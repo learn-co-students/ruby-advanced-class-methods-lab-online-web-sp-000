@@ -43,7 +43,7 @@ class Song
 
   def self.new_from_filename(filename)
     first_split = filename.split(".mp3")
-    new_file = first_split[0].split("-")
+    new_file = first_split[0].split(" - ")
     @song = Song.new 
     @song.name = new_file[1] 
     @song.artist_name = new_file[0]  
@@ -52,7 +52,10 @@ class Song
   
   def self.create_from_filename(filename)
    first_split = filename.split(".mp3")
-   
+   new_file = first_split[0].split(" - ")
+    @song.name = new_file[1] 
+    @song.artist_name = new_file[0]  
+    @song.save  
   end  
 
   def save
