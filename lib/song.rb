@@ -16,9 +16,10 @@ class Song
     self.class.all << self
   end
 
-  def self.new_by_name
-    self.all.each do |song|
-      song.name = song.name.split(" ").collect{|s| s.capitalize}.join(" ")
-    end
-  end
+def self.new_by_name(song_name)
+  song = self.new
+  song.name = song_name
+  song
+ end
 end
+
