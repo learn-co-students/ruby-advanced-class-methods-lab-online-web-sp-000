@@ -7,7 +7,7 @@ class Song
   end
 
   def save
-    self.class.all << self
+    self.class.all << self  # or @@all << self
   end
 
   def self.create    # instantiates and saves the song, and it returns the new song that was created
