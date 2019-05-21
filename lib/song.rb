@@ -25,8 +25,8 @@ class Song
   
   def self.create_by_name(name) # instantiates and saves a song with a name property
   
-    song = self.new     # self.new == Song.new (self because we could change class                   Name)
-    song.name = name
+    song = self.new     # self.new == Song.new (self because we could change class Name)
+    song.name = name    # line 28 and 29 could be replaced with attr_accessor :name
     song.save           # or @@all << song
     song
   end  
