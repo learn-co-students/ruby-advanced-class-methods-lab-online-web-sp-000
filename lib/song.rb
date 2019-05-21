@@ -69,6 +69,18 @@ class Song
     song
   end
   
+  def self.create_from_filename(filename)
+  # initializes and saves a song and artist_name based on the filename format
+   
+    @@all << self.new_from_filename(filename)    
+  end
+  
+  def self.destroy_all
+    # clears all the song instances from the @@all array
+    
+    @@all.clear
+  end
+  
 end
 
 
