@@ -19,7 +19,7 @@ class Song
   
   def self.new_by_name(name) # instantiates a song with a name property
     song = self.new
-    song.name = name         # .name is attr_accessor?
+    song.name = name         
     song
   end
   
