@@ -1,3 +1,4 @@
+require "pry"
 class Song
   attr_accessor :name, :artist_name, :all
   @@all = []
@@ -8,6 +9,7 @@ class Song
 
   def save
     self.class.all << self
+    self
   end
 
   def self.create
@@ -64,13 +66,7 @@ class Song
   end
 
   def self.create_from_filename(filename)
-    song_name = filename.split(" - ")[1].chomp(".mp3")
-    artists_name = filename.split(" - ")[0]
-    new_song = self.new
-    new_song.name = song_name
-    new_song.artist_name = artists_name
-    new_song.save
-    new_song
+    self.new_from_filename(filename).save
     #=>class constructor that accepts a filename in the format of " - .mp3",
     #=>for example "Taylor Swift - Blank Space.mp3"
   end
