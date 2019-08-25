@@ -1,6 +1,3 @@
-# Ruby Advanced Class Methods Lab
-
-## Learning Goals
 
 - Build custom class constructors.
 - Build class finders.
