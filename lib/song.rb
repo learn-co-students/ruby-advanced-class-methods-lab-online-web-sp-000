@@ -47,21 +47,17 @@ class Song
   
   def self.new_from_filename(file_name)
      song = self.new
-     artist_and_song = file_name.split(/[]\-/)
+     artist_and_song = file_name.split(/[-"]/)
      artist = artist_and_song[0].to_s.strip
      song.artist_name = artist
-     song_name = artist_and_song[1].to_s.strip
-     if song_name.include?(".mp3")
-      song_name = song_name.split(".mp3")
-      song_name = song_name.to_s.strip
-     end
+     song_name = artist_and_song[1].to_s.chomp(".mp3").strip
      song.name = song_name
      song
   end
   
   def self.create_from_filename(file_name)
-    new_from_filename(file_name)
-    save
+    song = new_from_filename(file_name)
+    save(song)
   end
 
   
@@ -69,11 +65,14 @@ class Song
     @@all.clear
   end
 
-  def save
-    self.class.all << song
+  def self.save(song)
+    @@all << song
   end
 end
 
-middle = Song.create
+i_dont = Song.new_from_filename("Aerosmith - I Don't Want to Miss A Thing.mp3")
+puts i_dont.artist_name
+puts i_dont.name
+
 
 
