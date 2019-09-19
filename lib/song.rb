@@ -33,7 +33,7 @@ class Song
     result # returns the found song.
   end
 
-  def find_or_create_by_name(song_name) # class finder method, finds a song based on a name or creates a song based on a name.
+  def self.find_or_create_by_name(song_name) # class finder method, finds a song based on a name or creates a song based on a name.
     result = self.find_by_name(song_name) # sets the result variable equal to the previously defined class method find_by_name which returns a song based on a name.
     if result # if the song is found by the name.
       result # return the found song.
