@@ -14,7 +14,7 @@ class Song
   def self.create
     newSongInstance = self.new
     self.all << newSongInstance
-    newSongInstance
+    newSongInstance 
   end
   
   def self.new_by_name(name)
@@ -31,9 +31,7 @@ class Song
   end
   
   def self.find_by_name(name)
-    self.all.find do |i|
-      return i if i.name == name
-    end
+    self.all.find {|i| i.name == name}
   end
 
   def self.find_or_create_by_name(name)
@@ -74,6 +72,9 @@ class Song
   end
   
 end
+
+
+print Song.create
 
 # Song.create_by_name("Shake it off!")
 # Song.create_by_name("The Middle")
