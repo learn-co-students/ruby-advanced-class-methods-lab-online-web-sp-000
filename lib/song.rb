@@ -1,13 +1,12 @@
 class Song
   
+  require 'pry'
+  
  attr_accessor :name, :artist_name
  
   @@all = []
 
-def initialize
-  @@all 
-  save
-end
+
 
 def self.all
   @@all
@@ -20,7 +19,7 @@ end
 def self.create
 song = Song.new
 song.save
-save
+song
 end
 
 def self.new_by_name(song_name)
@@ -40,18 +39,20 @@ self.all.find{|song| song.name == name}
 end
 
 def self.find_or_create_by_name(song_name)
-  if self.find_by_name(song_name)
-else
-  self.create_by_name(song_name)
-end
+  self.find_by_name(song_name) || self.create_by_name(song_name)
 end
 
+
 def self.alphabetical
-  new_array = self.all.sort_by{|word| word}
-return new_array
+  all.sort_by{|song| song.name}
 end
 
 def self.new_from_filename(song)
+  array = song.delete(".mp3")
+  array_split = array.split('-')
+  artist_name = array_split[0]
+  binding.pry
+  name = array_split[1]
 end
 
 def self.destroy_all
