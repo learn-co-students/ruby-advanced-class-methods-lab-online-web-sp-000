@@ -35,8 +35,13 @@ class Song
     @@all.find {|n| n.name == name}
   end
   
+  def self.find_or_create_by_name(name)
+    find_by_name(name) || create_by_name(name)
+  end
+  
   def self.alphabetical
-    @@all.sort_by {|a, b| a <=> b}
+    binding.pry
+    self.all.sort_by {|a, b| a <=> b}
   end
   
   def self.destroy_all
