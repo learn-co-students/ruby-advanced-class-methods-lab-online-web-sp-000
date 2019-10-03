@@ -18,8 +18,9 @@ class Song
     create_self
   end
    
-   def self.new_by_name(name) 
-     name
+   def self.new_by_name(new_name) 
+     name = new_name.name
+     new_name
      #takes in string of a name of an instance
      #return song instance with that name set as its name property
     end
@@ -33,4 +34,12 @@ class Song
   def self.find_by_name(name)
     @@all.find {|n| n.name == name}
   end
+  
+  def self.alphabetical
+    @@all.sort_by {|a, b| a <=> b}
   end
+  
+  def self.destroy_all
+    self.all.clear
+  end
+end
