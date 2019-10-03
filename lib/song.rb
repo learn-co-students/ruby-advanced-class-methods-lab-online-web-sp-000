@@ -19,7 +19,8 @@ class Song
   end
    
    def self.new_by_name(new_name) 
-     name = new_name.name
+     song = self.new
+     song.name = new_name
      new_name
      #takes in string of a name of an instance
      #return song instance with that name set as its name property
