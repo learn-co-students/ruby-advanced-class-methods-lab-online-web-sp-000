@@ -17,22 +17,18 @@ class Song
     create_self.save
     create_self
   end
-  
-  #.new
    
    def self.new_by_name(new_song)
      song = self.new
      song.name = new_song
      song
-     #takes a string, makes it into an instance variable
-     #instantiate a song with a name property
-     #returns song variable
     end
 
-  def self.create_by_name(name)
-    #name  #takes in string name of a song - name
-    #returns a song instance with that name set as its name property and the song. Instance variable??
-    # @@all << @name #saves to @@all class variable -- @@all << new thing
+  def self.create_by_name(song)
+    new_song = self.new
+    new_song.name = song
+    @@all << new_song
+    new_song
   end
  
   def self.find_by_name(name)
