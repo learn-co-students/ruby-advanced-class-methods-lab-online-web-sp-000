@@ -42,7 +42,7 @@ class Song
   end
 
   def self.new_from_filename(filename)
-    new_array = filename.split(/\s\-|\./)
+    new_array = filename.split(/\s\-\s|\./)
     name = new_array[1]
     artist_name = new_array[0]
 
@@ -53,7 +53,7 @@ class Song
   end
   
   def self.create_from_filename(filename)
-    new_array = filename.split(/\s\-|\./)
+    new_array = filename.split(/\s\-\s|\./)
     name = new_array[1]
     artist_name = new_array[0]
   
