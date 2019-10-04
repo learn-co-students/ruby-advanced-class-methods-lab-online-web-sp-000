@@ -1,4 +1,3 @@
-require 'pry'
 
 class Song
   attr_accessor :name, :artist_name
@@ -24,15 +23,14 @@ class Song
      song
     end
 
-  def self.create_by_name(song)
-    new_song = self.new
-    new_song.name = song
-    @@all << new_song
-    new_song
+  def self.create_by_name(new_song)
+    song = self.create
+    song.name = new_song
+    song
   end
  
   def self.find_by_name(name)
-    @@all.find {|n| n.name == name}
+    self.all.find {|n| n.name == name}
   end
   
   def self.find_or_create_by_name(name)
@@ -40,11 +38,30 @@ class Song
   end
   
   def self.alphabetical
-    binding.pry
-    self.all.sort_by {|a, b| a <=> b}
+    self.all.sort_by {|a| a.name}
+  end
+
+  def self.new_from_filename(filename)
+    new_array = filename.split(/\s\-|\./)
+    name = new_array[1]
+    artist_name = new_array[0]
+    
+    song = self.new
+    song.name = name 
+    song.artist_name = artist_name
+    song
   end
   
+  def self.create_from_filename(filename)
+    new_filename = filename.split(".")
+    filename = new_filename[1]
+    song = self.new
+    song.filename = filename
+    song
+  end
+
   def self.destroy_all
     self.all.clear
   end
+  
 end
