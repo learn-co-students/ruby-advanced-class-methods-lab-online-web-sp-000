@@ -14,16 +14,24 @@ class Song
   end
 
   def self.create
+    self.name
     song = self.new  
     self.all << song
     song
   end
   
-  def self.new_by_name(name)
-    def name 
-      
-    end
+  def self.new_by_name(title)
+    song = self.new
+    song.name = title
+    song
+  end
+  
+  def self.create_by_name(title)
+    song = self.create
+    
   end 
 end
 
+#Song.create_by_name("Billy Jean")
+#binding.pry
 
