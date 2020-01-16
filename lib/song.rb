@@ -44,7 +44,9 @@ class Song
     self.all.sort_by {|song| song.name}
   end 
  
-   
+  def self.new_from_filename
+    
+  end 
 end
 
 #Song.create_by_name("Billy Jean")
