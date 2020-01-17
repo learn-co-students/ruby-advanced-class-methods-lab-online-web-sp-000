@@ -45,10 +45,15 @@ class Song
   end 
  
   def self.new_from_filename(filename)
+    split_array = filename.split(" - ")
+    artist_name = split_array[0]
+    song_name = split_array[1].gsub(".mp3", "")
     
-  end 
+    song = self.new
+    song.name = song_name
+    song.artist_name = artist_name
+    song
+  end   
 end
 
-#Song.create_by_name("Billy Jean")
-#binding.pry
 
