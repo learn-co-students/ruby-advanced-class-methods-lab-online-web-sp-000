@@ -12,7 +12,7 @@ class Song
 
   def self.create
     song = self.new
-    @@all << song
+    self.all << song
     song
   end
 
@@ -26,8 +26,13 @@ class Song
     @@all.find{|x| x.name == song}
   end
 
-  def self.find_or_create_by_name(name)
+  def self.create_by_name(record)
+    song = self.new_by_name(record)
+    @@all << song
+    song
+  end
 
+  def self.find_or_create_by_name(name)
       x = self.find_by_name(name)
       if x
         return x
@@ -36,11 +41,6 @@ class Song
     end
   end
 
-  def self.create_by_name(record)
-    song = self.new_by_name(record)
-    @@all << song
-    song
-  end
   def self.alphabetical
     @@all.sort_by {|song|song.name}
   end
