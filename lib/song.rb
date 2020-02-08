@@ -57,13 +57,14 @@ class Song
 
   def self.create_from_filename(mp3)
     song = self.new_from_filename(mp3)
-    @@all << song
+    self.all << song
     song
   end
 
   def self.destroy_all
-    self.class.all.clear
+    self.all.clear
   end
+
   def save
     self.class.all << self
   end
