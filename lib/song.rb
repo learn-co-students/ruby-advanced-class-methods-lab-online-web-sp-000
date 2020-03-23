@@ -34,16 +34,20 @@ class Song
   end
   
   def self.new_from_filename(filename)
-    
-  
+    info = filename.split(" - ")
+    song = self.new  ##create new song instance
+    song.name = info[1].chomp(".mp3") 
+    ##set to name of this song = name of song in file
+    song.artist_name = info[0]
+    song
   end
   
   def self.create_from_filename
-  
+    
   end
   
   def self.destroy_all
-  
+    self.all.clear
   end
   
   def self.all
