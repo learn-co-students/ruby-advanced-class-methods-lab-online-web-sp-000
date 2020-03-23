@@ -57,6 +57,7 @@ describe "Song Class Methods" do
     end
     
     it 'creates a new Song object with the provided title if one doesn\'t already exist' do
+      Song.class_variable_set(:@@all,[])
       blank_space = Song.find_by_name("Blank Space")
       expect(blank_space).to be(nil)
 
@@ -67,6 +68,7 @@ describe "Song Class Methods" do
 
   describe '.alphabetical' do
     it 'returns all the song instances in alphabetical order by song name' do
+      Song.class_variable_set(:@@all,[])
       song_1 = Song.create_by_name("Thriller")
       song_2 = Song.create_by_name("Blank Space")
       song_3 = Song.create_by_name("Call Me Maybe")
