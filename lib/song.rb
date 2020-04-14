@@ -20,7 +20,7 @@ class Song
     self.all << new_song
     new_song
   end
-
+#finds an existing song
   def self.find_by_name(name)
     self.all.each do |songs|
       if songs.name == name
@@ -30,6 +30,12 @@ class Song
     return nil
   end
 
+#prettier way to do it
+#def self.find_or_create_by_name(song_name)
+#  self.find_by_name(song_name) || self.create_by_name(song_name)
+#end
+
+#finds the existing song object or creates a new one
   def self.find_or_create_by_name(name)
     if self.find_by_name(name)
       return self.find_by_name(name)
@@ -38,6 +44,10 @@ class Song
 
     end
   end
+#much prettier way to do this previous method from solution
+#def self.find_or_create_by_name(song_name)
+#    self.find_by_name(song_name) || self.create_by_name(song_name)
+#  end
 
   def self.alphabetical
     self.all.sort_by{|x| x.name}
@@ -69,7 +79,7 @@ class Song
   end
 
   def self.destroy_all
-    @@all = []
+    self.all.clear
   end
 
   def save
