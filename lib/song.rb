@@ -52,18 +52,25 @@ class Song
   end
 
   def self.alphabetical
-
+    @@all.sort_by { |inst| inst.name }
   end
 
-  def self.new_from_filename
-
+  def self.new_from_filename(file_name)
+    split_file_name = file_name.split(" - ")
+    split_file_title = split_file_name[1].split(".")
+    song = self.new
+    song.name = split_file_title[0]
+    song.artist_name = split_file_name[0]
+    song
+    # binding.pry
   end
 
-  def self.create_from_filename
-
+  def self.create_from_filename(file_name)
+    @@all << self.new_from_filename(file_name)
+    # binding.pry
   end
 
   def self.destroy_all
-
+    @@all.clear
   end
 end
