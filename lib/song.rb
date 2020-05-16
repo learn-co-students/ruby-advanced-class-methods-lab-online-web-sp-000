@@ -11,56 +11,58 @@ class Song
   end
 
   def self.create
-    song = self.new
-    self.all << song
-    song
+    new_song = self.new
+    new_song.save
+    new_song
   end
 
-  def self.new_by_name(title)
-    song = self.new
-    song.name = title
-    song
+  def self.new_by_name(song)
+    new_song = self.new
+    new_song.name = song
+    new_song
   end
 
-  def self.create_by_name(title)
-    song = self.create
-    song.name = title
-    song
+  def self.create_by_name(song)
+    new_song = self.new_by_name(song)
+    new_song.save
+    new_song
   end
 
-  def self.find_by_name(title)
-    result = self.all.detect {|song| song.name == title}
-    result
+  def self.find_by_name(name)
+    self.all.find { |s| s.name == name }
   end
 
-  def self.find_or_create_by_name(title)
-    result = self.find_by_name(title)
-    if result
-      result
+  def self.find_or_create_by_name(song)
+    if self.find_by_name(song) != nil
+      self.find_by_name(song)
     else
-      self.create_by_name(title)
+      self.create_by_name(song)
     end
   end
 
   def self.alphabetical
-    sorted = self.all.sort_by {|song| song.name}
-    sorted
+    self.all.sort_by{|s| s.name}
   end
 
-  def self.new_from_filename(file)
-    file_array = file.split(" - ")
-    file_array[1] = file_array[1].chomp(".mp3")
+  def self.new_from_filename(filename)
+    new_filename = filename.chomp(".mp3").split(" - ")
+    song_name = new_filename[1]
+    artist_name = new_filename[0]
+
     song = self.new
-    song.name = file_array[1]
-    song.artist_name = file_array[0]
+    song.name = song_name
+    song.artist_name = artist_name
     song
   end
 
-  def self.create_from_filename(file)
-    result = self.new_from_filename(file)
+  def self.create_from_filename(filename)
+    new_filename = filename.chomp(".mp3").split(" - ")
+    song_name = new_filename[1]
+    artist_name = new_filename[0]
+
     song = self.create
-    song.name = result.name
-    song.artist_name = result.artist_name
+    song.name = song_name
+    song.artist_name = artist_name
     song
   end
 
