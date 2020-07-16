@@ -11,22 +11,6 @@
 This lab has provided you with a base `Song` class that provides the following
 definition:
 
-```ruby
-class Song
-  attr_accessor :name, :artist_name
-  @@all = []
-
-  def self.all
-    @@all
-  end
-
-  def save
-    self.class.all << self
-  end
-
-end
-```
-
 The `Song` class provides a class variable `@@all` to store all instances for
 `Song` that are created through the instance method `Song#save`. Additionally,
 `Song` instances have basic properties of a name and an artist name.
