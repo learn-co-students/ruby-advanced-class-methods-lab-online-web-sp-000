@@ -11,19 +11,19 @@ class Song
   end
   
   def self.create
-    song = Song.new 
+    song = self.new 
     song.save
     song
   end
   
   def self.new_by_name(song_name)
-    song = Song.new
+    song = self.new
     song.name = song_name
     song
   end
     
   def self.create_by_name(song_name)
-    song = Song.new
+    song = self.new
     song.name = song_name
     song.save
     song
@@ -53,7 +53,7 @@ class Song
   
   def self.new_from_filename(file_name)
     song_info = file_name.split(%r{[-.]})
-    song = Song.new 
+    song = self.new 
     song.artist_name = song_info[0].strip
     song.name = song_info[1].strip
     song
