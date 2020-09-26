@@ -43,7 +43,8 @@ class Song
   end 
   
   def self.alphabetical
-    self.all.sort{|a,z| a.name <=> z.name}
+    #self.all.sort{|a,z| a.name <=> z.name}
+    self.all.sort_by{|a| a.name}
   end
   
   def self.destroy_all
