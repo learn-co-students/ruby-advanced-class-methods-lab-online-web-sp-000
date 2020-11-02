@@ -24,6 +24,13 @@ class Song
     self.class.all << self
   end
 
+  def self.create
+    song = Song.new
+    song = @name
+    self.all << song
+  end
+
+
 end
 ```
 
