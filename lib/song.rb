@@ -14,16 +14,17 @@ def initialize
   self.class.all << self
 end
 
-def new_by_name 
-  @name = "Blank Space"
-end 
+def self.new_by_name 
+ @@name = "blank space"
+ @@artist_name 
+end
 
   
   def self.all
     @@all
   end
 
-  def save
+  def self.save
     self.class.all << self
   end
 
@@ -42,5 +43,6 @@ def self.find_or_create_by_name(name)
 end 
 
 
+ 
 
 
