@@ -36,28 +36,22 @@ end
   def save
     self.class.all << self
   end
+end 
 
 
 def self.find_by_name(name)
-  binding.pry 
-   #new_song = Song.new
-  @@all.find {|name| found == name} 
-  binding.pry 
-  end 
+   @@all.find {|name| found == name} 
 end
 
 
 
 def self.find_or_create_by_name(name)
-  #it 'invokes .find_by_name and .create_by_name instead of repeating code' do
-  
-  new_song.find_by_name(name)
-    puts found 
-    if !name 
-    new_song.create_by_name 
-    puts name 
+  #it 'invokes .find_by_name and .create_by_name instead  of repeating code' do
+    self.find_by_name(name) 
+    if name = nil
+      self.create_by_name(name) 
+      puts found  
     end 
-  end 
 end 
 
 
