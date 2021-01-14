@@ -11,13 +11,15 @@ end
 def initialize
   @name = name 
   @artist_name = artist_name 
+  @@name
+  @@artist_name 
   self.class.all << self
 end
 
-def self.new_by_name 
- @@name = "blank space"
- @@artist_name 
-end
+
+def self.new_by_name(name)
+ "Blank Space" = Song.new 
+end 
 
   
   def self.all
@@ -27,10 +29,6 @@ end
   def self.save
     self.class.all << self
   end
-
-def self.name
-  
-end 
 
 
 def self.artist_name 
