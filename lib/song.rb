@@ -38,18 +38,39 @@ end
   end
 
 
-def self.find
-  
-end 
+def self.find_by_name(name)
+  binding.pry 
+   new_song = Song.new
+  @@all.find {|name| new_song.name == name}
+  binding.pry 
+  end 
+end
 
 
 
 def self.find_or_create_by_name(name)
   #it 'invokes .find_by_name and .create_by_name instead of repeating code' do
+   new_song = Song.new
+  if new_song.find_by_name
+    puts new_song.name
+  else 
+    new_song.create_by_name
+    end 
   end 
-end 
+
 
 
  
+# results of last binding.pry 
 
+# [1] pry(Song)> name
+# => "Hello"
+# [2] pry(Song)> new_song
+# => nil
+# [3] pry(Song)> Song.new
+# => #<Song:0x0000000001381160>
+# [4] pry(Song)> new_song.name
+# NoMethodError: undefined method `name' for nil:NilClass
+# from (pry):4:in `find_by_name'
+# [5] pry(Song)>
 
