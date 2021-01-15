@@ -39,23 +39,33 @@ end
 
 
 def self.find_by_name(name) 
+  #name is "Hello"
    @@all.find {|song| 
+      #song = #<Song:0x00000000022c8bf0 @name="Blank Space">
   song.name == name
-      #this if statement returns true or false, not a value
+      #this statement returns true or false, not a value
       }
+      false 
+      #song.name does not = name because song.name is blank space and name is Hello
 end 
 
 
 def self.find_or_create_by_name(name) 
+  binding.pry 
   #it 'invokes .find_by_name and .create_by_name instead  of repeating code' do
     self.find_by_name(name) 
-    if name = nil
-      self.create_by_name(name) 
-      puts found  
+    binding.pry 
+    if song.name == name 
+      Song 
+      binding.pry 
+    else 
+      self.create_by_name
+      binding.pry 
+      Song.name   
     end 
 end 
 end 
 
 
-
+ 
  
