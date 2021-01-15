@@ -1,4 +1,4 @@
-require'pry'
+ require'pry'
 
 class Song
   attr_accessor :name, :artist_name
@@ -40,8 +40,13 @@ end
 
 
 def self.find_by_name(name)
-   @@all.find {|name| found == name} 
-end
+   @@all.find {|name| 
+    if name
+      name 
+    else 
+      false}
+  end
+end 
 
 
 
