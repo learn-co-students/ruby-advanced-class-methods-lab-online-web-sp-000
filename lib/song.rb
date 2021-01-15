@@ -1,6 +1,7 @@
  require'pry'
 
 class Song
+  @@all = []
   attr_accessor :name, :artist_name
 
 def self.create
@@ -8,22 +9,21 @@ def self.create
   new_song.save 
   #to call the save method down below 
   new_song 
-  #to return the new song per the test 
+  #to return the new song per the test  
 end 
  
  
-def self.new_by_name(name)
+def Song.new_by_name(name)
  new_song = Song.new
     #we are using new_song instead of Song because we earlier changed the value to new_song 
-    new_song.name = name 
-    #.name here relates to the attr_accessor name, not a method variable
-    #we are passing in the argument here 
- new_song 
-end 
+ new_song.name = name 
+ #we are passing in the argument  
+ new_song
+end
 
 def self.create_by_name(name)
   new_song = Song.new
-  new_song.name = name 
+  new_song.name = name
   new_song.save 
     new_song
 end 
@@ -36,16 +36,13 @@ end
   def save
     self.class.all << self
   end
-end 
 
 
-def self.find_by_name(name)
-   @@all.find |name| 
-    if name
-      name 
-    else 
-      false
-  end
+def self.find_by_name(name) 
+   @@all.find {|song| 
+  song.name == name
+      #this if statement returns true or false, not a value
+      }
 end 
 
 
@@ -56,6 +53,7 @@ def self.find_or_create_by_name(name)
       self.create_by_name(name) 
       puts found  
     end 
+end 
 end 
 
 
