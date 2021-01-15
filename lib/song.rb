@@ -40,17 +40,16 @@ end
 
 
 def self.find_by_name(name)
-   @@all.find {|name| 
+   @@all.find |name| 
     if name
       name 
     else 
-      false}
+      false
   end
 end 
 
 
-
-def self.find_or_create_by_name(name)
+def self.find_or_create_by_name(name) 
   #it 'invokes .find_by_name and .create_by_name instead  of repeating code' do
     self.find_by_name(name) 
     if name = nil
