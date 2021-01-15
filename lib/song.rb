@@ -53,15 +53,8 @@ end
 
 
 def self.find_or_create_by_name(name) 
-  #it 'invokes .find_by_name and .create_by_name instead  of repeating code' do
-     new_song = Song.new
-    new_song.name = name
-    self.find_by_name(name) 
-    new_song.name == name 
-      new_song 
-      self.create_by_name
-      Song.name   
-end
+    self.find_by_name(name) ||  self.create_by_name(name) 
+    end 
 end 
 
 
