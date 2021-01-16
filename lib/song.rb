@@ -52,13 +52,13 @@ end
 
 def self.find_or_create_by_name(name) 
     self.find_by_name(name) ||  self.create_by_name(name) 
-    end 
+end 
     
     
 def self.alphabetical
   self.all.sort_by{|s| s.name
   }
- end
+end
 
  
 def self.new_from_filename(song, artist_name)
@@ -71,5 +71,11 @@ end
 
 
 def self.destroy_all
-end
+  # self.all.each do |element|
+  #   element.destroy_all
+  self.all.destroy_all 
+self.all 
+binding.pry 
 end 
+end 
+  
