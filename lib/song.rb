@@ -56,6 +56,20 @@ def self.find_or_create_by_name(name)
     
     
 def self.alphabetical
-  self.all.sort_by{|s| s.name}
+  self.all.sort_by{|s| s.name
+  }
  end
- end 
+
+ 
+def self.new_from_filename(song, artist_name)
+  
+end 
+
+
+def self.create_from_filename
+end 
+
+
+def self.destroy_all
+end
+end 

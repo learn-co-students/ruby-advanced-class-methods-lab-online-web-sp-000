@@ -91,7 +91,6 @@ describe "Song Class Methods" do
       expect(song_match.name).to eq("For Love I Come")
       expect(song_match.artist_name).to eq("Thundercat")
     end
-  end
 
   describe '.destroy_all' do
     it 'clears all the song instances from the @@all array' do
