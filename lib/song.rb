@@ -44,8 +44,6 @@ def self.find_by_name(name)
   new_song = Song.new
   new_song.name = name
    @@all.find {|song| 
-     #song.name is blank space 
-   
     song.name == name
    }
      #this statement returns true or false, not a value
@@ -55,8 +53,16 @@ end
 def self.find_or_create_by_name(name) 
     self.find_by_name(name) ||  self.create_by_name(name) 
     end 
-end 
-
-
- 
- 
+    
+    
+def self.alphabetical(name)
+  #@@all.each do
+    #name.sort       undefined method `sort' for "Song":String
+  #self.all.sort_by{|name| %w[1]}
+  #Song.name.sort_by{|name| %w[1]}
+  #sorted = Song.sort_by { |w| w[0]}      Song is string, not array 
+   #name.sort_by{|name| %w[1]}
+   #@name.sort_by{|name| %w[1]}     name evaluated to nil class 
+   #self.all.sort       comparison of Song with Song failed
+   @@all.sort
+ end 
