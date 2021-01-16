@@ -1,7 +1,10 @@
 require 'pry'
 
 class Song
-
+attr_accessor :name, :artist_name
+  @@all = []
+  
+  
 def self.create
   new_song = Song.new 
   new_song.save 
@@ -39,7 +42,7 @@ end
 
 
 def self.find_by_name(name)
-  name is Hello
+  #name is Hello
   new_song = Song.new
   new_song.name = name
   @@all.find {|song| song.name == name}
@@ -66,67 +69,10 @@ def self.create_from_filename
 end 
 
 
-def self.destroy_all
-    self.all.each do |element|
-      element.destroy_all
-  self.all.destroy_all 
-  self.all 
-binding.pry 
-end 
-
-def self.create_by_name(name)
-  new_song = Song.new
-  new_song.name = name 
-  new_song.save 
-    new_song
-end 
-
-
-  def self.all
-    @@all
-  end 
-
-  def save
-    self.class.all << self
-  end
-
-
-
-def self.find_by_name(name)
-  name is Hello
-  new_song = Song.new
-  new_song.name = name
-  @@all.find {|song| song.name == name}
-    #this statement returns true or false, not a value
-end
-
-
-def self.find_or_create_by_name(name) 
-    self.find_by_name(name) ||  self.create_by_name(name) 
-end 
-    
-    
-def self.alphabetical
-  self.all.sort_by{|s| s.name}
-end
-
- 
-def self.new_from_filename(song, artist_name)
-  
-end 
-
-
-def self.create_from_filename
-end 
-
-
-def self.destroy_all
-    # self.all.each do |element|
-    #   element.destroy_all
-  self.all.destroy_all 
-  self.all 
-end 
-end
-end 
-
- 
+# def self.destroy_all
+#     #self.all.each do |element|
+#       #element.destroy_all
+#   self.all.destroy_all 
+#   self.all 
+# end 
+ end 
