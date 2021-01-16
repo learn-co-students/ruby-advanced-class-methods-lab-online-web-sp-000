@@ -98,4 +98,5 @@ describe "Song Class Methods" do
       expect(Song.all).to eq([])
     end
   end
-end
+end  
+ end
