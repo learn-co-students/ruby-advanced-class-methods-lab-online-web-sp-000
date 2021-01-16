@@ -55,14 +55,7 @@ def self.find_or_create_by_name(name)
     end 
     
     
-def self.alphabetical(name)
-  #@@all.each do
-    #name.sort       undefined method `sort' for "Song":String
-  #self.all.sort_by{|name| %w[1]}
-  #Song.name.sort_by{|name| %w[1]}
-  #sorted = Song.sort_by { |w| w[0]}      Song is string, not array 
-   #name.sort_by{|name| %w[1]}
-   #@name.sort_by{|name| %w[1]}     name evaluated to nil class 
-   #self.all.sort       comparison of Song with Song failed
-   @@all.sort
+def self.alphabetical
+  self.all.sort_by{|s| s.name}
+ end
  end 
