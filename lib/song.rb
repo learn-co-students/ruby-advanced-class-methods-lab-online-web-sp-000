@@ -1,7 +1,7 @@
 require 'pry'
 
 class Song
-attr_accessor :name, :artist_name
+  attr_accessor :name, :artist_name
   @@all = []
   
   
@@ -59,20 +59,27 @@ def self.alphabetical
   self.all.sort_by{|s| s.name}
 end
 
- 
-def self.new_from_filename(song, artist_name)
+
+def self.new_from_filename(name, artist_name)
+  # new_song = Song.new
+  # new_song.name = name
+#   song << name.split(" - ").to_s 
+#       #new_name.each do |name|
+     
+#     #["Thundercat", "For Love I Come.mp3"] 
   
+ 
+# song.name #=> "Blank Space"
+# song.artist_name #=> "Taylor Swift"
 end 
 
 
 def self.create_from_filename
+  end 
+
+def self.destroy_all() 
+  @@all.collect do |element|
+      element
+    end 
 end 
-
-
-# def self.destroy_all
-#     #self.all.each do |element|
-#       #element.destroy_all
-#   self.all.destroy_all 
-#   self.all 
-# end 
- end 
+end 
