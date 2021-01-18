@@ -59,7 +59,6 @@ def self.alphabetical
   self.all.sort_by{|s| s.name}
 end
 
-
 def self.new_from_filename(name)
   split_file = name.chomp(".mp3").split(" - ")
   new_song = Song.new
@@ -69,11 +68,15 @@ def self.new_from_filename(name)
 end 
 
 
-def self.create_from_filename
-  
-  end 
+def self.create_from_filename(name) 
+ split_file = name.chomp(".mp3").split(" - ")
+  #song_match = Song.new 
+  song_match.name = split_file[1]
+  song_match.artist_name = split_file[0]
+  binding.pry 
+end 
 
-def self.destroy_all
+def self.destroy_all 
   @@all.clear
 end 
-end
+end 
