@@ -69,11 +69,16 @@ end
 
 
 def self.create_from_filename(name) 
+      #name = "Thundercat - For Love I Come.mp3"
  split_file = name.chomp(".mp3").split(" - ")
-  #song_match = Song.new 
+      #split_file = ["Thundercat", "For Love I Come"]
+  song_match = Song.new
+      #Song.new = <Song:0x0000000001e0c828>
   song_match.name = split_file[1]
+      #split_file = "For Love I Come"
   song_match.artist_name = split_file[0]
-  binding.pry 
+    #song_match.artist_name = nil
+    #split_file[0] = "Thundercat"
 end 
 
 def self.destroy_all 
