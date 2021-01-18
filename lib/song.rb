@@ -14,8 +14,8 @@ def self.create
 end  
  
  
-def Song.new_by_name(name)
-new_song = Song.new
+def self.new_by_name(name)
+new_song = self.new
     #we are using new_song instead of Song because we earlier changed the value to new_song 
 new_song.name = name 
     #we are passing in the argument  
@@ -23,7 +23,7 @@ new_song
 end
 
 def self.create_by_name(name)
-  new_song = Song.new
+  new_song = self.new
   new_song.name = name
   new_song.save 
     new_song
@@ -43,8 +43,8 @@ end
 
 def self.find_by_name(name)
   #name is Hello
-  new_song = Song.new
-  new_song.name = name
+  # new_song = Song.new
+  # new_song.name = name
   @@all.find {|song| song.name == name}
     #this statement returns true or false, not a value
 end
@@ -60,26 +60,20 @@ def self.alphabetical
 end
 
 
-def self.new_from_filename(name, artist_name)
-  # new_song = Song.new
-  # new_song.name = name
-#   song << name.split(" - ").to_s 
-#       #new_name.each do |name|
-     
-#     #["Thundercat", "For Love I Come.mp3"] 
-  
- 
-# song.name #=> "Blank Space"
-# song.artist_name #=> "Taylor Swift"
+def self.new_from_filename(name)
+  split_file = name.chomp(".mp3").split(" - ")
+  new_song = Song.new
+  new_song.name = split_file[1]
+  new_song.artist_name = split_file[0]
+  new_song
 end 
 
 
 def self.create_from_filename
+  
   end 
 
-def self.destroy_all() 
-  @@all.collect do |element|
-      element
-    end 
+def self.destroy_all
+  @@all.clear
 end 
-end 
+end
