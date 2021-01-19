@@ -75,10 +75,11 @@ def self.create_from_filename(name)
   song_match = Song.new
       #Song.new = <Song:0x0000000001e0c828>
   song_match.name = split_file[1]
-      #split_file = "For Love I Come"
+      #split_file[1] = "For Love I Come"
   song_match.artist_name = split_file[0]
-    #song_match.artist_name = nil
+    #song_match.artist_name =  "Thundercat"
     #split_file[0] = "Thundercat"
+    song_match.name 
 end 
 
 def self.destroy_all 
