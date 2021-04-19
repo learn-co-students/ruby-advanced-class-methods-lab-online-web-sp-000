@@ -1,3 +1,5 @@
+require "pry"
+
 class Song
   attr_accessor :name, :artist_name
   @@all = []
@@ -29,7 +31,7 @@ class Song
   end 
   
   def self.find_by_name(song_name)
-    self.all.find {|song| song.name == song_name}
+    all.find {|song| song.name == song_name}
   end 
   
   def self.find_or_create_by_name(song_name)
@@ -41,8 +43,25 @@ class Song
   end 
   
   def self.alphabetical
-    #sorting through array wouldnt just sort names, we need to access the names and then sort them
-   #self.all.sort {|a,b| a<=>b}
+    all.sort {|a,b| a.name <=> b.name}
+  end 
+
+  def self.new_from_filename(filename)
+    artist_and_song = filename.chomp(".mp3").split(" - ")
+    song_name = artist_and_song[1]
+    
+    self.new_by_name(song_name)
+    artist_name= artist_and_song[0]
+    #binding.pry 
+  end 
+
+  #def self.create_from_filename(filename)
+   # new_fromfilename(filename)
+  #  save
+  #end 
+  
+  def self.destroy_all
+    self.all.clear
   end 
 
 end
