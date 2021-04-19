@@ -1,5 +1,3 @@
-require "pry"
-
 class Song
   attr_accessor :name, :artist_name
   @@all = []
@@ -49,16 +47,15 @@ class Song
   def self.new_from_filename(filename)
     artist_and_song = filename.chomp(".mp3").split(" - ")
     song_name = artist_and_song[1]
-    
-    self.new_by_name(song_name)
-    artist_name= artist_and_song[0]
-    #binding.pry 
+    song = self.new_by_name(song_name)
+    song.artist_name= artist_and_song[0]
+    song 
   end 
 
-  #def self.create_from_filename(filename)
-   # new_fromfilename(filename)
-  #  save
-  #end 
+  def self.create_from_filename(filename)
+    song = new_from_filename(filename)
+    song.save
+  end 
   
   def self.destroy_all
     self.all.clear
