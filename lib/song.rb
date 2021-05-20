@@ -43,7 +43,6 @@ class Song
     if song = self.find_by_name(name) #find song
     else 
       song = self.create_by_name(name) #if not create song
-      #return song
     end
     song
   end
