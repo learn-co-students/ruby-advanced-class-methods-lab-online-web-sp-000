@@ -40,9 +40,21 @@ class Song
   
   def self.find_or_create_by_name(name) 
     #if a method serves two purposes you want to branch it into helper methods
-    if song = self.find_by_name(name) #find song
+    # if self.find_by_name(name) #find song
+    #   song
+    # else 
+    #   song = self.create_by_name(name) #if not create song
+    # end
+    # song
+    if song = self.find_by_name(name)
+      @@all.each do |song|
+        if song.name == name
+          song
+        end
+      end
+      song
     else 
-      song = self.create_by_name(name) #if not create song
+      song = self.create_by_name(name)
     end
     song
   end
