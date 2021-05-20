@@ -28,10 +28,10 @@ class Song
     song.save
     song
     #below this also works
-    #song = self.new #takes in the name of a song
-    #song.name=name #define name
-    #@@all << song #song saved in @@all
-    song #returns a song instance with the name set
+    #song = self.new #akes in the name of a song
+    #song.name=name define name
+    #@@all << song song saved in @@all
+    #song returns a song instance with the name set
   end
 
   def self.find_by_name(name) 
@@ -40,7 +40,12 @@ class Song
   
   def self.find_or_create_by_name(name) 
     #if a method serves two purposes you want to branch it into helper methods
-    self.find_by_name(name) || self.create_by_name(name)
+    if song = self.find_by_name(name) #find song
+    else 
+      song = self.create_by_name(name) #if not create song
+      #return song
+    end
+    song
   end
   
   def self.alphabetical
